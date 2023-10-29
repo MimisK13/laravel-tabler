@@ -19,15 +19,11 @@ php artisan tabler:install
 
 ## Change log
 
-Please see the [changelog](changelog.md) for more information on what has changed recently.
+Please see the [changelog](CHANGELOG.md) for more information on what has changed recently.
 
 ## Contributing
 
-Please see [contributing.md](contributing.md) for details and a todolist.
-
-## Security
-
-If you discover any security related issues, please email author@email.com instead of using the issue tracker.
+Please see [contributing.md](CONTRIBUTING.md) for details and a todolist.
 
 ## Credits
 
@@ -35,8 +31,7 @@ If you discover any security related issues, please email author@email.com inste
 - [All Contributors][link-contributors]
 
 ## License
-
-MIT. Please see the [license file](license.md) for more information.
+The MIT License (MIT). Please see [license file](LICENSE.md) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/mimisk13/laravel-tabler.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/mimisk13/laravel-tabler.svg?style=flat-square
