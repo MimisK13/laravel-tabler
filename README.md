@@ -3,7 +3,7 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
+This is where your description should go. Take a look at [CONTRIBUTING.md](contributing.md) to see a to do list.
 
 ## Installation
 
@@ -19,11 +19,11 @@ php artisan tabler:install
 
 ## Change log
 
-Please see the [changelog](CHANGELOG.md) for more information on what has changed recently.
+Please see the [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## Contributing
 
-Please see [contributing.md](CONTRIBUTING.md) for details and a todolist.
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details and a todolist.
 
 ## Credits
 
