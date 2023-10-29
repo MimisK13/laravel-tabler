@@ -21,8 +21,7 @@ trait InstallBlade
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/default/resources/views', resource_path('views'));
 
         // Routes...
-        (new Filesystem)->ensureDirectoryExists(resource_path('routes'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/default/routes', resource_path('routes'));
+        copy(__DIR__.'/../../stubs/default/routes/web.php', base_path('routes/web.php'));
 
         // Vite
         copy(__DIR__.'/../../stubs/default/vite.config.js', base_path('vite.config.js'));
