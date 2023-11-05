@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
+Route::get('empty/', function () {
+    return view('empty');
+})->name('empty');
+
 Route::get('license', function () {
     return view('license');
 })->name('license');

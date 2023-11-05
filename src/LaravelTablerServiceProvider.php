@@ -81,6 +81,11 @@ class LaravelTablerServiceProvider extends ServiceProvider
             __DIR__.'/../resources/views/errors' => base_path('resources/views/vendor/mimisk13'),
         ], 'tabler.views');
 
+        // Components
+        $this->publishes([
+            __DIR__.'/../resources/views/components' => base_path('resources/views/vendor/mimisk13'),
+        ], 'tabler.components');
+
         $this->publishes([
             __DIR__.'/../vite.config.js' => base_path(),
         ], 'tabler.vite-config');
