@@ -18,19 +18,13 @@ class LaravelTablerServiceProvider extends ServiceProvider
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
-        // Publishing is only necessary when using the CLI.
-        /*
-        if ($this->app->runningInConsole()) {
-            $this->bootForConsole();
-        }
-        */
-        if (! $this->app->runningInConsole()) {
-            return;
-        }
-
         $this->commands([
             Console\InstallCommand::class,
         ]);
+
+        if ($this->app->runningInConsole()) {
+            $this->bootForConsole();
+        }
     }
 
     /**
@@ -58,7 +52,9 @@ class LaravelTablerServiceProvider extends ServiceProvider
     public function provides()
     {
         //return ['laravel-tabler'];
-        return [Console\InstallCommand::class];
+        return [
+            Console\InstallCommand::class
+        ];
     }
 
     /**
@@ -68,27 +64,28 @@ class LaravelTablerServiceProvider extends ServiceProvider
      */
     protected function bootForConsole(): void
     {
-        // Publishing the configuration file.
         /*
         $this->publishes([
             __DIR__.'/../config/laravel-tabler.php' => config_path('laravel-tabler.php'),
         ], 'laravel-tabler.config');
-        */
 
-        // Publishing Main Layout
         $this->publishes([
-            __DIR__.'/../resources/views/layouts' => base_path('resources/views/vendor/mimisk13'),
-            __DIR__.'/../resources/views/errors' => base_path('resources/views/vendor/mimisk13'),
-        ], 'tabler.views');
+            __DIR__.'/../stubs/default/resources/views/layouts' => base_path('resources/views/mimisk13/tabler/views/layouts'),
+        ], 'tabler-layout-default');
+
+        $this->publishes([
+            __DIR__.'/../stubs/default/resources/views/errors' => base_path('resources/views/mimisk13/tabler/views/errors'),
+        ], 'tabler-errors-default');
 
         // Components
         $this->publishes([
-            __DIR__.'/../resources/views/components' => base_path('resources/views/vendor/mimisk13'),
+            __DIR__.'/../stubs/default/resources/views/components' => base_path('resources/views/mimisk13/tabler/views/components'),
         ], 'tabler.components');
 
         $this->publishes([
-            __DIR__.'/../vite.config.js' => base_path(),
+            __DIR__.'/../stubs/default/vite.config.js' => base_path(''),
         ], 'tabler.vite-config');
+        */
 
         // Publishing assets.
 //        $this->publishes([
