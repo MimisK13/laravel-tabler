@@ -8,8 +8,6 @@ class LaravelTablerServiceProvider extends ServiceProvider
 {
     /**
      * Perform post-registration booting of services.
-     *
-     * @return void
      */
     public function boot(): void
     {
@@ -18,10 +16,6 @@ class LaravelTablerServiceProvider extends ServiceProvider
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
-        $this->commands([
-            Console\InstallCommand::class,
-        ]);
-
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
@@ -29,8 +23,6 @@ class LaravelTablerServiceProvider extends ServiceProvider
 
     /**
      * Register any package services.
-     *
-     * @return void
      */
     public function register(): void
     {
@@ -53,14 +45,12 @@ class LaravelTablerServiceProvider extends ServiceProvider
     {
         //return ['laravel-tabler'];
         return [
-            Console\InstallCommand::class
+            Console\InstallCommand::class,
         ];
     }
 
     /**
      * Console-specific booting.
-     *
-     * @return void
      */
     protected function bootForConsole(): void
     {
@@ -88,12 +78,13 @@ class LaravelTablerServiceProvider extends ServiceProvider
         */
 
         // Publishing assets.
-//        $this->publishes([
-//            __DIR__.'/../resources/assets' => public_path('vendor/mimisk13'),
-//        ], 'laravel-tabler.assets');
-
+        //        $this->publishes([
+        //            __DIR__.'/../resources/assets' => public_path('vendor/mimisk13'),
+        //        ], 'laravel-tabler.assets');
 
         // Registering package commands.
-        // $this->commands([]);
+        $this->commands([
+            Console\InstallCommand::class,
+        ]);
     }
 }

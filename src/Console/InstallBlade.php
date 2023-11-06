@@ -3,7 +3,6 @@
 namespace MimisK13\LaravelTabler\Console;
 
 use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Finder\Finder;
 
 trait InstallBlade
 {
@@ -12,7 +11,7 @@ trait InstallBlade
         $this->updateNodePackages(function ($packages) {
             return [
                 'vite-plugin-static-copy' => '^0.17.0',
-                '@tabler/core' => '^1.0.0-beta20'
+                '@tabler/core' => '^1.0.0-beta20',
             ] + $packages;
         });
 
@@ -28,8 +27,7 @@ trait InstallBlade
 
         $this->components->info('Installing and building Node dependencies.');
 
-        if (file_exists(base_path('pnpm-lock.yaml')))
-        {
+        if (file_exists(base_path('pnpm-lock.yaml'))) {
             $this->runCommands(['pnpm install', 'pnpm run build']);
 
         } elseif (file_exists(base_path('yarn.lock'))) {

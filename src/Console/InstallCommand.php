@@ -2,10 +2,10 @@
 
 namespace MimisK13\LaravelTabler\Console;
 
-use RuntimeException;
 use Illuminate\Console\Command;
-use Symfony\Component\Process\Process;
 use Illuminate\Contracts\Console\PromptsForMissingInput;
+use RuntimeException;
+use Symfony\Component\Process\Process;
 
 class InstallCommand extends Command implements PromptsForMissingInput
 {
@@ -16,25 +16,24 @@ class InstallCommand extends Command implements PromptsForMissingInput
 
     protected $signature = 'tabler:install';
 
-    protected $description = "Tabler UI";
+    protected $description = 'Install Tabler UI on Laravel';
 
     public function handle()
     {
-//        if ($this->argument('stack') === 'blade') {
-//
-//            return $this->installBlade();
-//
-//
-//        } elseif ($this->argument('stack') === 'livewire') {
-//
-//            //return $this->installInertiaReactStack();
-//            return $this->components->info('Not yet...');
-//        }
-//
-//        $this->components->error('Invalid option. Supported options are [blade], [livewire]');
-//
-//        return 1;
-
+        //        if ($this->argument('stack') === 'blade') {
+        //
+        //            return $this->installBlade();
+        //
+        //
+        //        } elseif ($this->argument('stack') === 'livewire') {
+        //
+        //            //return $this->installInertiaReactStack();
+        //            return $this->components->info('Not yet...');
+        //        }
+        //
+        //        $this->components->error('Invalid option. Supported options are [blade], [livewire]');
+        //
+        //        return 1;
 
         return $this->installBlade();
     }
@@ -42,9 +41,7 @@ class InstallCommand extends Command implements PromptsForMissingInput
     /**
      * Update the "package.json" file.
      *
-     * @param  callable  $callback
      * @param  bool  $dev
-     * @return void
      */
     protected static function updateNodePackages(callable $callback, $dev = true): void
     {
