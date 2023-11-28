@@ -1,9 +1,8 @@
 @extends('layouts.tabler')
 
-@push('page-styles')
+@pushonce('page-styles')
     {{--- ---}}
-@endpush
-
+@endpushonce
 
 @section('content')
     <div class="page-header d-print-none">
@@ -27,7 +26,6 @@
     </div>
 @endsection
 
-
-@push('page-scripts')
+@pushonce('page-scripts')
     {{--- ---}}
-@endpush
+@endpushonce

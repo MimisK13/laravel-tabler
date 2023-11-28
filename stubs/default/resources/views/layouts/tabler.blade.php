@@ -141,19 +141,27 @@
                         </div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
-                                <span class="avatar avatar-sm" style="background-image: url({{ asset('static/avatars/000m.jpg') }})"></span>
+                                <span class="avatar avatar-sm shadow-none"
+                                      style="background-image: url({{ Avatar::create(Auth::user()->name)->toBase64() ?? asset('static/avatars/000m.jpg') }})"
+                                ></span>
                                 <div class="d-none d-xl-block ps-2">
-                                    <div>Paweł Kuna</div>
-                                    <div class="mt-1 small text-muted">UI Designer</div>
+                                    <div>{{ auth()->user()->name }}</div>
+                                    <div class="mt-1 small text-muted">
+                                        UI Designer
+                                    </div>
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                <a href="#" class="dropdown-item">Status</a>
-                                <a href="#" class="dropdown-item">Profile</a>
-                                <a href="#" class="dropdown-item">Feedback</a>
+                                <a href="{{ route('users.profile') }}" class="dropdown-item">Profile</a>
                                 <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item">Settings</a>
-                                <a href="#" class="dropdown-item">Logout</a>
+                                <a href="{{ route('users.settings') }}" class="dropdown-item">Settings</a>
+
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button class="dropdown-item" role="menuitem" tabindex="-1" id="user-menu-item-1">
+                                        {{ __('Sign out') }}
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -166,7 +174,7 @@
                         <div class="container-xl">
                             <ul class="navbar-nav">
                                 <li class="nav-item {{ request()->is('/') ? 'active' : null }}">
-                                    <a class="nav-link" href="./" >
+                                    <a class="nav-link" href="{{ url('/') }}" >
                                         <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                                           <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
                                         </span>
