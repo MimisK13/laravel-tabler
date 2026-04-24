@@ -27,6 +27,9 @@
             "MimisK13\\LaravelTabler\\Tests\\": "tests"
         }
     },
+    "scripts": {
+        "test": "@php vendor/phpunit/phpunit/phpunit"
+    },
     "extra": {
         "laravel": {
             "providers": [

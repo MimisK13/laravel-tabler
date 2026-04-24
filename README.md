@@ -1,5 +1,6 @@
 # Laravel Tabler
 
+[![Tests](https://github.com/MimisK13/laravel-tabler/actions/workflows/tests.yml/badge.svg)](https://github.com/MimisK13/laravel-tabler/actions/workflows/tests.yml)
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 
