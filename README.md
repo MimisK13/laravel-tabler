@@ -4,7 +4,14 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-This is where your description should go. Take a look at [CONTRIBUTING.md](contributing.md) to see a to do list.
+`mimisk13/laravel-tabler` is a Laravel UI scaffolding package based on Tabler.
+
+It installs a ready starter layout, demo pages, Blade components, and route/vite stubs so you can start quickly with a Tabler-style admin UI.
+
+## Requirements
+
+- PHP 8.2+
+- Laravel 10, 11, 12, or 13
 
 ## Installation
 
@@ -17,6 +24,62 @@ composer require mimisk13/laravel-tabler
 ```bash
 php artisan tabler:install
 ```
+
+### What the install command does
+
+- Copies Blade views from package stubs to `resources/views`
+- Copies route stub to `routes/web.php`
+- Copies `vite.config.js` stub to project root
+- Adds frontend dependencies in `package.json` (`@tabler/core`, `vite-plugin-static-copy`)
+- Runs frontend install/build command (`npm`, `yarn`, or `pnpm` depending on lock file)
+
+### Scaffolded pages and routes
+
+Installed route stub includes:
+
+- `GET /` -> `dashboard` view
+- `GET /empty` -> `empty` view (`empty` route name)
+- `GET /license` -> `license` view (`license` route name)
+
+### Included Blade components
+
+The package stubs include reusable components under `resources/views/components`, including:
+
+- alerts
+- badges
+- buttons
+- cards
+- forms/inputs
+- table wrappers (`table`, `th`, `td`)
+- icons
+- empty state blocks
+- loading spinner
+
+Example usage:
+
+```blade
+<x-alert />
+
+<x-badge class="bg-blue">Active</x-badge>
+
+<x-button route="{{ route('license') }}">
+    View License
+</x-button>
+
+<x-input name="email" type="email" label="Email" required />
+
+<x-empty
+    title="No records"
+    message="There are no items yet."
+    button_label="Create item"
+    button_route="{{ url('/') }}"
+/>
+```
+
+## Notes
+
+- `tabler:install` is scaffolding-oriented and will overwrite target files like `routes/web.php` and `vite.config.js` with package stubs.
+- Review generated files before running in an existing production project.
 
 ## Change log
 

@@ -10,8 +10,8 @@ trait InstallBlade
     {
         $this->updateNodePackages(function ($packages) {
             return [
-                'vite-plugin-static-copy' => '^0.17.0',
-                '@tabler/core' => '^1.0.0-beta20',
+                'vite-plugin-static-copy' => '^4.0',
+                '@tabler/core' => '^1.0',
             ] + $packages;
         });
 

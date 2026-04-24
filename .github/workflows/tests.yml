@@ -10,6 +10,22 @@ on:
 jobs:
   phpunit:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - laravel: '^10.0'
+            testbench: '^8.0'
+            phpunit: '^10.0'
+          - laravel: '^11.0'
+            testbench: '^9.0'
+            phpunit: '^11.0'
+          - laravel: '^12.0'
+            testbench: '^10.0'
+            phpunit: '^11.0'
+          - laravel: '^13.0'
+            testbench: '^11.0'
+            phpunit: '^12.0'
 
     steps:
       - name: Checkout
@@ -26,8 +42,13 @@ jobs:
       - name: Validate composer.json
         run: composer validate --no-check-publish
 
+      - name: Set dependency matrix
+        run: |
+          composer require --no-interaction --no-update illuminate/support:${{ matrix.laravel }}
+          composer require --dev --no-interaction --no-update orchestra/testbench:${{ matrix.testbench }} phpunit/phpunit:${{ matrix.phpunit }}
+
       - name: Install dependencies
-        run: composer install --no-interaction --prefer-dist --no-progress
+        run: composer update --no-interaction --prefer-dist --no-progress
 
       - name: Run tests
         run: composer test
